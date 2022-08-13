@@ -44,26 +44,35 @@ if __name__ == "__main__":
     URL = f"https://www.google.com/search?lr=lang_en&ie=UTF-8&q=weather+{location}"
 
     # Get weather data of location
+
     data = get_weather_data(URL)
 
-    twitter_auth_keys = {
-        "consumer_key": "fClQrR93ZjqR565Dd1dVvo3nJ",
-        "consumer_secret": "UZpsUq8mpHyR8wY7MFQdPgqfafCyT0TncDFNx1IoIh3XbydWvV",
-        "access_token": "1558297313600327680-WgnqP3h4gmlkp97wIx1Ar0CKumg6kQ",
-        "access_token_secret": "9Wsrl77IFx7CvUWqlf5toN04ZFCLul6OGc2EceGAYxHiK"
-    }
+    # Twitter Keys
 
-    auth = tweepy.OAuthHandler(
-        twitter_auth_keys['consumer_key'],
-        twitter_auth_keys['consumer_secret']
-    )
-    auth.set_access_token(
-        twitter_auth_keys['access_token'],
-        twitter_auth_keys['access_token_secret']
+    consumer_key = "fClQrR93ZjqR565Dd1dVvo3nJ"
+    consumer_secret = "UZpsUq8mpHyR8wY7MFQdPgqfafCyT0TncDFNx1IoIh3XbydWvV"
+    access_token = "1558297313600327680-XIKAscyAJkkwfWprjB4XVwEDI3pJJB"
+    access_token_secret = "cNgR8hJgVTKyUaBcvzxJQRXCgVzMkKAXeKXbk4bydUa9t"
+
+    # Create Client with Twitter Keys
+
+    client = tweepy.Client(
+        consumer_key=consumer_key, consumer_secret=consumer_secret,
+        access_token=access_token, access_token_secret=access_token_secret
     )
 
-    api = tweepy.API(auth)
+    # String that will be used for tweet
 
+    output = f"Weather in {location}" + '\n'
     for key in data:
-        tweet = data[key]
-        status = api.update_status(status=tweet)
+        output = output + data[key] + '\n'
+
+    # Create Tweet
+
+    response = client.create_tweet(
+        text=output
+    )
+
+    # Print Status
+
+    print(f"https://twitter.com/user/status/{response.data['id']}")
