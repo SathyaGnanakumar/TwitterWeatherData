@@ -4,12 +4,6 @@ import tweepy
 
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36"
 
-
-# API Key: fClQrR93ZjqR565Dd1dVvo3nJ
-# API Key Secret: UZpsUq8mpHyR8wY7MFQdPgqfafCyT0TncDFNx1IoIh3XbydWvV
-# Access Token: 1558297313600327680-sYhh9vn2coG861w72OwScLteJlSZd6
-# Access Token Secret: AxuSdamM0oZXW1cWGPEgg9zO3rR7UPj8dhddZBNczaKXr
-
 def get_weather_data(url):
     session = requests.Session()
     session.headers['User-Agent'] = USER_AGENT
@@ -49,10 +43,10 @@ if __name__ == "__main__":
 
     # Twitter Keys
 
-    consumer_key = "fClQrR93ZjqR565Dd1dVvo3nJ"
-    consumer_secret = "UZpsUq8mpHyR8wY7MFQdPgqfafCyT0TncDFNx1IoIh3XbydWvV"
-    access_token = "1558297313600327680-XIKAscyAJkkwfWprjB4XVwEDI3pJJB"
-    access_token_secret = "cNgR8hJgVTKyUaBcvzxJQRXCgVzMkKAXeKXbk4bydUa9t"
+    consumer_key = "CONSUMER KEY"
+    consumer_secret = "CONSUMER SECRET"
+    access_token = "ACCESS TOKEN"
+    access_token_secret = "ACCESS TOKEN SECRET"
 
     # Create Client with Twitter Keys
 
